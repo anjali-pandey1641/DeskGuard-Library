@@ -35,9 +35,17 @@
         Away
     </div>
 
+    <div class="legend-item">
+        <div class="legend-color bookshelf-swatch"></div>
+        Bookshelf
+    </div>
+
 </div>
 
- <div class="library">
+ <div class="library" aria-label="Library seating map with bookshelf between seats">
+        <div class="bookshelf" aria-label="Bookshelf">
+            <span>Bookshelf</span>
+        </div>
         {% for desk in desks %}
         <a href=desk/{{desk.id}} class="seat {{desk.status}}">{{desk.name}}</a>
         {% endfor %}

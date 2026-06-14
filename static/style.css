@@ -10,12 +10,43 @@ h1{
 
 .library{
     display:grid;
-    grid-template-columns: repeat(5, 120px);
+    grid-template-columns: repeat(2, 120px) 80px repeat(3, 120px);
+    grid-template-rows: repeat(4, 80px);
+    grid-auto-flow: row dense;
     gap:25px;
 
     justify-content:center;
+    align-items:stretch;
 
     margin:40px auto;
+}
+
+.bookshelf{
+    grid-column:3;
+    grid-row:1 / span 4;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:100%;
+    border:6px solid #7c4a24;
+    border-radius:12px;
+    background:
+        linear-gradient(to bottom, transparent 22%, #7c4a24 22%, #7c4a24 26%, transparent 26%, transparent 48%, #7c4a24 48%, #7c4a24 52%, transparent 52%, transparent 74%, #7c4a24 74%, #7c4a24 78%, transparent 78%),
+        repeating-linear-gradient(90deg, #b77945 0 12px, #d19a66 12px 20px, #8f5a2f 20px 28px);
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.bookshelf span{
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.88);
+    color:#5c351b;
+    font-weight:bold;
+    transform:rotate(-90deg);
+    white-space:nowrap;
 }
 
 
@@ -97,6 +128,14 @@ header{
     width:20px;
     height:20px;
     border-radius:50%;
+}
+
+.bookshelf-swatch{
+    width:20px;
+    height:20px;
+    border-radius:4px;
+    background:repeating-linear-gradient(90deg, #b77945 0 5px, #d19a66 5px 10px, #8f5a2f 10px 15px);
+    border:2px solid #7c4a24;
 }
 
 /* DESK DETAILS CARD */
