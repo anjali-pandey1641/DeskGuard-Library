@@ -3,7 +3,6 @@ from database import (get_all_desks, get_desk, check_in, mark_away, leave_desk ,
 import threading
 from time import sleep
 
-
 def timer_loop():
     while True:
         try:
