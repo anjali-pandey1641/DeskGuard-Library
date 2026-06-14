@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    Librarian Dashboard
+</header>
+
+<div class="desk-card">
+
+<table>
+
+
+<tr>
+    <th>Seat</th>
+    <th>Status</th>
+</tr>
+
+<tr>
+    <td>A1</td>
+    <td>Free</td>
+</tr>
+
+<tr>
+    <td>A2</td>
+    <td>Occupied</td>
+</tr>
+
+</table>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

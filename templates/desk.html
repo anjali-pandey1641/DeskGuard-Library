@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+    <title>Desk</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    DeskGuard
+</header>
+
+<div class="desk-card">
+
+    <h1>{{ desk.name }}</h1>
+
+    <p><strong>Status:</strong> {{ desk.status }}</p>
+
+    <p><strong>Occupant:</strong> {{ desk.occupant }}</p>
+    {% if desk.status == "free" %}
+    <form method="POST">
+        <input type="text" name="occupant" placeholder="Enter Name">
+        <button>Check In</button>
+    </form>
+    {% elif desk.status == "occupied" %}
+    
+
+    <div class="button-row">
+
+    <form action="/away/{{ desk.id }}" method="POST">
+        <button>Mark Away</button>
+    </form>
+
+    <form action="/leave/{{ desk.id }}" method="POST">
+        <button>Leave Desk</button>
+    </form>
+    {% elif desk.status == "away" and desk.away_until %}
+    <p>Away Until: {{ desk.away_until[11:16] }}</p>
+    <form action="/return/{{ desk.id }}" method="POST">
+    <button>Return</button>
+    </form>
+
+    <form action="/leave/{{ desk.id }}" method="POST">
+        <button>Leave Desk</button>
+    </form>
+</div>
+    {% endif %}
+    <div class="back-container">
+        <a href="/" class="back-link">← Back to Library</a>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</div>
+</body>
+</html>

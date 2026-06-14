@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeskGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+    DeskGuard
+</header>
+<h2 class="page-title">Library Map</h2>
+
+<p class="instruction">
+    Click any seat to view details
+</p>
+
+<div class="legend">
+
+    <div class="legend-item">
+        <div class="legend-color free"></div>
+        Free
+    </div>
+
+    <div class="legend-item">
+        <div class="legend-color occupied"></div>
+        Occupied
+    </div>
+
+    <div class="legend-item">
+        <div class="legend-color away"></div>
+        Away
+    </div>
+
+</div>
+
+ <div class="library">
+        {% for desk in desks %}
+        <a href=desk/{{desk.id}} class="seat {{desk.status}}">{{desk.name}}</a>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
